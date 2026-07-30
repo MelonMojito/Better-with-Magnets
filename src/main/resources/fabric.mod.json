@@ -1,11 +1,11 @@
 {
 	"schemaVersion": 1,
-	"id": "examplemod",
+	"id": "betterwithmagnets",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This mod aims to help new BTA modders.",
+	"name": "Better with Magnets",
+	"description": "Craftable magnets that pull dropped items toward you.",
 	"authors": [
-		"Turnip Labs"
+		"MelonMojito"
 	],
 	"contact": {
 		"homepage": "",
@@ -16,16 +16,29 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"turniplabs.examplemod.ExampleMod"
+			"betterwithmagnets.BetterWithMagnets"
+		],
+		"recipesReady": [
+			"betterwithmagnets.BetterWithMagnets"
+		],
+		"initOptions": [
+			"betterwithmagnets.client.BetterWithMagnetsClient"
+		],
+		"beforeClientStart": [
+			"betterwithmagnets.client.BetterWithMagnetsClient"
+		],
+		"afterClientStart": [
+			"betterwithmagnets.client.BetterWithMagnetsClient"
 		]
 	},
 	"mixins": [
-		"examplemod.mixins.json"
+		"betterwithmagnets.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
 		"minecraft": "*",
-		"java": ">=${java}"
+		"java": ">=${java}",
+		"halplibe": ">=${halplibe}"
 	},
 	"suggests": {
 		"modmenu": ">=${modmenu}"
