@@ -2,6 +2,8 @@
 
 Craftable magnets for [Better than Adventure](https://betterthanadventure.net/). 
 
+Requires [Melib](https://github.com/MelonMojito/Melib).
+
 Hold a magnet or wear it on your head and nearby dropped items are pulled toward you. The magnet's item texture lights up while it is active.
 
 ## Installing
