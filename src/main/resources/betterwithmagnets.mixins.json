@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "betterwithmagnets.mixin",
+  "compatibilityLevel": "JAVA_${java}",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "EntityItemMixin",
+    "PlayerMixinMagnet"
+  ],
+  "client": [],
+  "server": []
+}
