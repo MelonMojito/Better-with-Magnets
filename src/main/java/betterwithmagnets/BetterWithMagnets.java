@@ -30,12 +30,11 @@ public class BetterWithMagnets implements ModInitializer, RecipeEntrypoint {
 
 	@Override
 	public void initNamespaces() {
-		RecipeBuilder.initNameSpace(MOD_ID);
 	}
 
 	@Override
 	public void onRecipesReady() {
-		RecipeBuilder.Shaped(MOD_ID)
+		RecipeBuilder.Shaped("minecraft")
 			.setShape(
 				"R L",
 				"S S",
