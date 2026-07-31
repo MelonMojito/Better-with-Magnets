@@ -1,5 +1,7 @@
 package betterwithmagnets;
 
+import betterwithmagnets.net.MagnetAvailabilityMessage;
+import betterwithmagnets.net.MagnetQueryMessage;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.minecraft.core.net.command.TextFormatting;
@@ -9,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.HalpLibe;
 import turniplabs.halplibe.helper.RecipeBuilder;
+import turniplabs.halplibe.helper.network.NetworkHandler;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
 public class BetterWithMagnets implements ModInitializer, RecipeEntrypoint {
@@ -25,6 +28,8 @@ public class BetterWithMagnets implements ModInitializer, RecipeEntrypoint {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Better with Magnets initializing!");
+		NetworkHandler.registerNetworkMessage(MagnetQueryMessage::new);
+		NetworkHandler.registerNetworkMessage(MagnetAvailabilityMessage::new);
 		LOGGER.info("Better with Magnets initialized!");
 	}
 

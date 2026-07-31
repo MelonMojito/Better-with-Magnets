@@ -25,6 +25,13 @@ public final class Magnets {
 	public static final double STRENGTH = 0.06;
 
 	/**
+	 * How often (in ticks) the server resends item positions while magnets are on.
+	 * The game default is 20, which is far too coarse for items that are being pulled:
+	 * a vanilla client dead-reckons for a whole second and then gets snapped back.
+	 */
+	public static final int MOVEMENT_PACKET_DELAY = 6;
+
+	/**
 	 * Whether magnets are active. Always true on a server; the client entrypoint
 	 * swaps this out for the in-game option so singleplayer can toggle it.
 	 */

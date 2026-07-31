@@ -1,5 +1,6 @@
 package betterwithmagnets.mixin;
 
+import betterwithmagnets.MagnetAvailability;
 import betterwithmagnets.Magnets;
 import betterwithmagnets.PlayerMagnetInterface;
 import net.minecraft.core.entity.player.Player;
@@ -27,7 +28,7 @@ public abstract class PlayerMixinMagnet implements PlayerMagnetInterface {
 
 	@Inject(method = "tick", at = @At("TAIL"))
 	void tick(CallbackInfo ci){
-		if (!Magnets.isEnabled()) {
+		if (!MagnetAvailability.isActive(((Player) (Object) this).world)) {
 			hasMagnet = false;
 			return;
 		}
