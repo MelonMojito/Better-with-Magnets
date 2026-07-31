@@ -33,7 +33,7 @@ public abstract class EntityTrackerEntryImplMixin {
 	private int defaultDelay = -1;
 
 	@Inject(method = "tick", at = @At("HEAD"))
-	private void magnetPacketRate(List<Player> players, CallbackInfo ci) {
+	private void magnetPacketRate(List<Player> list, CallbackInfo ci) {
 		if (!(trackedEntity instanceof MagnetizedItem)) return;
 
 		if (defaultDelay < 0) {

@@ -30,7 +30,7 @@ public final class Magnets {
 	 * vanilla client dead-reckoning for a whole second before being snapped back.
 	 * Everything else keeps the default.
 	 */
-	public static final int MAGNETIZED_PACKET_DELAY = 2;
+	public static final int MAGNETIZED_PACKET_DELAY = 1;
 
 	/**
 	 * Whether magnets are active. Always true on a server; the client entrypoint
