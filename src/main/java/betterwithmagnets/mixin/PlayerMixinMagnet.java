@@ -26,6 +26,9 @@ public abstract class PlayerMixinMagnet implements PlayerMagnetInterface {
 	@Unique
 	boolean hasMagnet = false;
 
+	@Unique
+	boolean hasMod = false;
+
 	@Inject(method = "tick", at = @At("TAIL"))
 	void tick(CallbackInfo ci){
 		if (!MagnetAvailability.isActive(((Player) (Object) this).world)) {
@@ -41,5 +44,15 @@ public abstract class PlayerMixinMagnet implements PlayerMagnetInterface {
 	@Override
 	public boolean hasMagnet() {
 		return hasMagnet;
+	}
+
+	@Override
+	public boolean hasMod() {
+		return hasMod;
+	}
+
+	@Override
+	public void setHasMod(boolean hasMod) {
+		this.hasMod = hasMod;
 	}
 }

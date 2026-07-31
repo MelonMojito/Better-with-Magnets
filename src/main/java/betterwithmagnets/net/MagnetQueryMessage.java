@@ -1,6 +1,7 @@
 package betterwithmagnets.net;
 
 import betterwithmagnets.Magnets;
+import betterwithmagnets.PlayerMagnetInterface;
 import org.jetbrains.annotations.NotNull;
 import turniplabs.halplibe.helper.network.NetworkHandler;
 import turniplabs.halplibe.helper.network.NetworkMessage;
@@ -22,6 +23,7 @@ public class MagnetQueryMessage implements NetworkMessage {
 	@Override
 	public void handle(NetworkContext context) {
 		if (context.player == null) return;
+		((PlayerMagnetInterface) context.player).setHasMod(true);
 		NetworkHandler.sendCompatibilityToPlayer(context.player, new MagnetAvailabilityMessage(Magnets.isEnabled()));
 	}
 }
