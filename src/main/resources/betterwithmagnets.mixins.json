@@ -7,8 +7,13 @@
   },
   "mixins": [
     "EntityItemMixin",
-    "PlayerMixinMagnet"
+    "PlayerMixinMagnet",
+    "RecipeRegistryMixin"
   ],
-  "client": [],
-  "server": []
+  "client": [
+    "client.PlayerLocalMixin"
+  ],
+  "server": [
+    "EntityTrackerEntryImplMixin"
+  ]
 }

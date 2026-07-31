@@ -8,9 +8,9 @@ import net.minecraft.client.gui.options.data.OptionsPage;
 import net.minecraft.client.gui.options.data.OptionsPages;
 import net.minecraft.client.option.GameSettings;
 import net.minecraft.client.option.OptionBoolean;
+import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import net.minecraft.core.item.Items;
-import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
 import turniplabs.halplibe.util.OptionsInitEntrypoint;
 
@@ -44,8 +44,10 @@ public class BetterWithMagnetsClient implements OptionsInitEntrypoint, ClientSta
 
 	@Override
 	public void afterClientStart() {
-		//textures are stitched by now, so the model can resolve its icons
-		ModelHelper.setItemModel(Items.AMMO_FIREBALL, () -> new ItemModelMagnet(Items.AMMO_FIREBALL, "minecraft"));
+		//textures are stitched by now, so the model can resolve its icons.
+		//registered straight on the game's dispatcher: halplibe's ModelHelper is deprecated and
+		//its dispatcher fields are never assigned, so setItemModel NPEs on 6.1.x
+		ItemModelDispatcher.getInstance().addDispatch(new ItemModelMagnet(Items.AMMO_FIREBALL, "minecraft"));
 
 		OptionsPages.register(
 			new OptionsPage("options.betterwithmagnets.title", BetterWithMagnets.magnetStack())
